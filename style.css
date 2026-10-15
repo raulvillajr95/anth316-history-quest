@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --bg: #101522;
+  --panel: #1c2940;
+  --gold: #f9ce6c;
+  --green: #91d8b4;
+  --white: #f4f0dc;
+  --red: #ff8c8c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Press Start 2P', monospace;
+  line-height: 1.8;
+}
+
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 24px;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  background: var(--panel);
+  border: 3px solid var(--gold);
+  font-size: 10px;
+}
+
+.stats {
+  display: flex;
+  gap: 20px;
+}
+
+.screen {
+  margin-top: 30px;
+  padding: 40px 24px;
+  background: var(--panel);
+  border: 3px solid var(--green);
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+h1 {
+  color: var(--gold);
+  font-size: clamp(18px, 4vw, 32px);
+}
+
+h2 {
+  color: var(--gold);
+  font-size: 16px;
+}
+
+p {
+  font-size: 11px;
+  line-height: 2.2;
+}
+
+button {
+  padding: 18px;
+  background: var(--gold);
+  color: var(--bg);
+  border: 3px solid var(--white);
+  font-family: inherit;
+  font-size: 10px;
+  line-height: 1.8;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.level-btn {
+  min-height: 90px;
+}
+
+#answer-options {
+  display: grid;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+/* Prevent horizontal overflow */
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+button,
+textarea {
+  max-width: 100%;
+}
+
+/* Better touch interactions */
+button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+/* Prevent long text from overflowing */
+.screen,
+button,
+p,
+h1,
+h2,
+h3 {
+  overflow-wrap: anywhere;
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  main {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 16px;
+  }
+
+  .screen {
+    margin-top: 20px;
+    padding: 28px 18px;
+  }
+
+  .level-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-header {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .stats {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  main {
+    padding: 10px;
+  }
+
+  .game-header {
+    padding: 14px 10px;
+    font-size: 8px;
+    line-height: 2;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .stats {
+    justify-content: center;
+    gap: 10px;
+    font-size: 8px;
+  }
+
+  .screen {
+    padding: 24px 12px;
+    margin-top: 12px;
+    border-width: 2px;
+  }
+
+  h1 {
+    font-size: clamp(17px, 5vw, 24px);
+    line-height: 1.6;
+  }
+
+  h2 {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  h3 {
+    font-size: 11px;
+  }
+
+  p {
+    font-size: 11px;
+    line-height: 2;
+  }
+
+  button {
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 10px;
+    font-size: 10px;
+    line-height: 1.8;
+  }
+
+  .level-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .level-btn {
+    min-height: 65px;
+  }
+
+  #answer-options,
+  #exam-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  #answer-options button,
+  #exam-options button {
+    text-align: left;
+    padding: 16px 12px;
+    min-height: 60px;
+  }
+
+  #exam-timer {
+    font-size: 24px;
+  }
+
+  #boss-answer {
+    font-size: 16px;
+    min-height: 160px;
+    padding: 14px;
+  }
+
+  #boss-feedback {
+    padding: 14px;
+  }
+
+  .review-card {
+    padding: 12px;
+    margin: 12px 0;
+  }
+
+  #retry-exam,
+  #return-home {
+    margin: 8px 0;
+  }
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+  .game-header {
+    font-size: 7px;
+  }
+
+  .stats {
+    font-size: 7px;
+  }
+
+  .screen {
+    padding: 18px 8px;
+  }
+
+  button {
+    font-size: 9px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
+  }
+}
+
+#boss-answer {
+  width: 100%;
+  padding: 18px;
+  margin: 20px 0;
+  background: var(--bg);
+  color: var(--white);
+  border: 3px solid var(--gold);
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+#boss-answer:focus {
+  outline: 2px solid var(--green);
+}
+
+#boss-feedback {
+  margin-top: 25px;
+  padding: 20px;
+  background: var(--bg);
+  border: 2px solid var(--green);
+  text-align: left;
+}
+
+#boss-feedback h3 {
+  color: var(--gold);
+  font-size: 12px;
+}
+
+#exam-options {
+  display: grid;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+#exam-timer {
+  color: var(--gold);
+  font-size: 28px;
+}
+
+#exam-progress {
+  color: var(--green);
+}
+
+.review-card {
+  margin: 16px 0;
+  padding: 16px;
+  background: var(--bg);
+  border: 2px solid var(--green);
+  text-align: left;
+}
+
+.review-card h3 {
+  font-size: 10px;
+}
+
+#exam-btn {
+  margin-top: 15px;
+  background: var(--green);
+}
+
+#retry-exam,
+#return-home {
+  margin: 10px;
+}
+
+/* Hover effects only on pointer devices */
+@media (hover: hover) and (pointer: fine) {
+  button:not(:disabled):hover {
+    transform: translateY(-3px);
+    background: var(--green);
+  }
+}
+
+/* Touch feedback */
+@media (hover: none) {
+  button:not(:disabled):active {
+    transform: scale(0.98);
+    filter: brightness(1.15);
+  }
+}
+
+/* Accessible keyboard navigation */
+button:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 3px;
+}

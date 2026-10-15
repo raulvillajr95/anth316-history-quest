@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101522" />
+    <meta
+      name="description"
+      content="History Quest: An interactive Native American history study game."
+    />
+    <title>ANTH-316 | History Quest</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="questions.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header class="game-header">
+        <span>ANTH-316 ARCADE</span>
+        <div class="stats">
+          <span id="xp">XP: 0</span>
+          <span id="health">HP: 3</span>
+          <span id="missed">MISSED: 0</span>
+        </div>
+      </header>
+
+      <!-- HOME SCREEN -->
+      <section id="home-screen" class="screen">
+        <h1>HISTORY QUEST</h1>
+        <p>Explore the past. Challenge the narrative.</p>
+        <button id="start-btn">START QUEST</button>
+        <button id="exam-btn">TIMED EXAM</button>
+      </section>
+
+      <!-- LEVEL SELECT -->
+      <section id="level-screen" class="screen hidden">
+        <h2>SELECT YOUR CHAPTER</h2>
+
+        <div class="level-grid">
+          <button class="level-btn" data-level="0">
+            01 - Origins & Oral Traditions
+          </button>
+          <button class="level-btn" data-level="1">
+            02 - The World Before 1491
+          </button>
+          <button class="level-btn" data-level="2">
+            03 - Contact & Colonization
+          </button>
+          <button class="level-btn" data-level="3">
+            04 - Revolution & Removal
+          </button>
+          <button class="level-btn" data-level="4">
+            05 - The Western Frontier
+          </button>
+          <button class="level-btn" data-level="5">
+            06 - Survival & Sovereignty
+          </button>
+        </div>
+      </section>
+
+      <!-- BATTLE SCREEN -->
+      <section id="battle-screen" class="screen hidden">
+        <h2 id="chapter-title">CHAPTER 1</h2>
+        <p id="question-text">Question goes here...</p>
+
+        <div id="answer-options"></div>
+        <p id="feedback"></p>
+
+        <button id="next-btn" class="hidden">NEXT CHALLENGE</button>
+      </section>
+
+      <section id="boss-screen" class="screen hidden">
+        <h2>BOSS BATTLE</h2>
+        <p id="boss-question"></p>
+
+        <textarea
+          id="boss-answer"
+          rows="7"
+          placeholder="Construct your historical argument..."
+        ></textarea>
+
+        <button id="submit-boss">SUBMIT RESPONSE</button>
+
+        <div id="boss-feedback" class="hidden">
+          <h3>SELF-EVALUATION</h3>
+          <p id="boss-rubric"></p>
+          <button id="complete-btn">COMPLETE CHAPTER</button>
+        </div>
+      </section>
+
+      <section id="exam-screen" class="screen hidden">
+        <h2>TIMED MIDTERM</h2>
+
+        <p id="exam-timer">05:00</p>
+        <p id="exam-progress">QUESTION 1 / 10</p>
+        <p id="exam-question"></p>
+
+        <div id="exam-options"></div>
+      </section>
+
+      <section id="results-screen" class="screen hidden">
+        <h2>EXAM RESULTS</h2>
+
+        <p id="exam-score"></p>
+        <p id="exam-summary"></p>
+
+        <div id="exam-review"></div>
+
+        <button id="retry-exam">RETRY EXAM</button>
+        <button id="return-home">MAIN MENU</button>
+      </section>
+    </main>
+  </body>
+</html>
