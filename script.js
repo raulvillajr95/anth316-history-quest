@@ -331,3 +331,9 @@ function finishExam() {
 
   showScreen('results-screen');
 }
+
+document.querySelectorAll('.home-btn').forEach((button) => {
+  button.addEventListener('click', () => {
+    showScreen('home-screen');
+  });
+});

@@ -372,6 +372,11 @@ h3 {
     transform: translateY(-3px);
     background: var(--green);
   }
+
+  .home-btn:hover {
+    background: var(--gold);
+    color: var(--bg);
+  }
 }
 
 /* Touch feedback */
@@ -387,4 +392,12 @@ button:focus-visible,
 textarea:focus-visible {
   outline: 3px solid var(--green);
   outline-offset: 3px;
+}
+
+.home-btn {
+  display: block;
+  margin: 25px auto 0;
+  background: transparent;
+  color: var(--gold);
+  border: 2px solid var(--gold);
 }
